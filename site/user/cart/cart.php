@@ -1,4 +1,20 @@
+<?
+if(isset($_SESSION['mycart'])){
+    if(isset($_GET['idcart']) ){
 
+        array_splice($_SESSION['mycart'], $_GET['idcart'],1);
+
+    }else{
+        unset($_SESSION['cartmy']);
+    }
+
+    // if(count($_SESSION['cart'])>0) header('location: cart.php')  ;
+    //    else  header('location: productPage.php');
+    
+    
+   
+}
+?>
 <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
@@ -6,6 +22,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>Sản Phẩm</th>
+                            <th>Tên Sản Phẩm</th>
                             <th>Giá</th>
                             <th>Số Lượng</th>
                             <th>Tổng Tiền</th>
@@ -13,111 +30,44 @@
                         </tr>
                     </thead>
                     <tbody class="align-middle">
-                        <tr>
-                            <td class="align-middle"><img src="./user/style/img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="./user/style/img/product-2.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="./user/style/img/product-3.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="./user/style/img/product-4.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td class="align-middle"><img src="./user/style/img/product-5.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle">
-                                <div class="input-group quantity mx-auto" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-minus" >
-                                        <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-primary btn-plus">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="align-middle">$150</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
+                  <?
+                  $tong=0;
+                  $i=0;
+                  $ship =30000;
+                  $tongthanhtoan=0;
+                  foreach($_SESSION['mycart'] as $cart){
+                    $thanhtien= $cart[2] * $cart[4];
+                    $tong= $tong + $thanhtien;
+                    $tongthanhtoan = $ship + $tong;
+                    echo '
+                    <tr>
+                    <td class="align-middle"><img  src="../controller/hinh/'.$cart[3].'"alt="" style="width: 50px;"></td>
+                    <td class="align-middle">
+                    '.$cart[1].'
+                </td>
+                    <td class="align-middle">'.number_format($cart[2],).' VNĐ</td>
+                    <td class="align-middle">
+                        '.$cart[4].'
+                    </td>
+                    <td class="align-middle">'.number_format($thanhtien,).' VNĐ</td>
+                    <td class="align-middle">
+                    <a href="index.php?page=xoacart&idcart='.$i.'">  Xóa
+                    </a>
+                  </td>
+                </tr>
+
+
+
+                
+                    ';
+                    $i=$i + 1;
+                  }
+               
+                  ?>
+                       
+                      
+
+
                     </tbody>
                 </table>
             </div>
@@ -135,19 +85,25 @@
                     <div class="border-bottom pb-2">
                         <div class="d-flex justify-content-between mb-3">
                             <h6>Tổng Tiền Sản Phẩm</h6>
-                            <h6>$150</h6>
+                            <h6><?=number_format($tong,)?> VNĐ</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Tiền Ship</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <h6 class="font-weight-medium"><?= number_format($ship,)?> VNĐ</h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Tổng Tiền</h5>
-                            <h5>$160</h5>
+                            <h5><?=number_format( $tongthanhtoan,)?> VNĐ</h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3"><a class="thanhtoan" href="index.php?page=checkout">Thanh Toán</a></button>
+                        <?
+                        if($tongthanhtoan==0){
+                        echo'Giỏ Hàng Rỗng';
+                       }else{
+                        echo' <a class="thanhtoan" href="index.php?page=checkout"> <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Thanh Toán</button></a>';
+                       }
+                       ?>
                     </div>
                 </div>
             </div>
