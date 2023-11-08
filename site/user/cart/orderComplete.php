@@ -28,49 +28,69 @@
 
         <div class="row">
             <div class="col-lg-12 order-md-2 mb-4">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted">SẢN PHẨM CỦA BẠN</span>
-                    <span class="badge badge-secondary badge-pill">3</span>
-                </h4>
-                <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0">Tên sản phẩm 1</h6>
-                            <small class="text-muted">Số lượng</small>
-                        </div>
-                        <span class="text-muted">$12</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0">Tên sản phẩm 2</h6>
-                            <small class="text-muted">Số lượng</small>
-                        </div>
-                        <span class="text-muted">$8</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                            <h6 class="my-0">Tên sản phẩm 3</h6>
-                            <small class="text-muted">Số lượng</small>
-                        </div>
-                        <span class="text-muted">$5</span>
-                    </li>
+                    <?
+                    $tong = 0;
+                    $i = 0;
+                    $ship = 30000;
+                    $tongthanhtoan = 0;
+                    $tongsl = 0;
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        $thanhtien = $cart[2] * $cart[4];
+                        $tong = $tong + $thanhtien;
+                        $tongthanhtoan = $ship + $tong;
+                        $tongsl += $cart[4];
+                        $i += 1;
+                        echo ' 
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">SẢN PHẨM CỦA BẠN</span>
+                        <span class="badge badge-secondary badge-pill">Tổng số lượng sản phẩm
+                             '.$tongsl.'
+                        </span>
+                    </h4>
+    
+                    <ul class="list-group mb-3">
+                       <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Tên sản phẩm ' . $i . ': ' . $cart[1] . '</h6>
+                                <small class="text-muted">Số lượng: ' . $cart[4] . '</small>
+                            </div>
+                            <span class="text-muted">'.number_format($cart[2],).' VNĐ</span>
+                        </li>';
+
+                    }
+
+
+                    ?>
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
                             <h6 class="my-0">Giảm giá</h6>
                             <small>Mã giảm giá</small>
                         </div>
-                        <span class="text-success">-$5</span>
+                        <span class="text-success">0</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <div class="text-success">
+                            <h6 class="my-0">Tiền Ship</h6>
+
+                        </div>
+                        <span class="text-success">
+                            <?= number_format($ship, ) ?> VNĐ
+                        </span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Tổng tiền</span>
-                        <strong>$20</strong>
+                        <strong>
+                            <?= number_format($tongthanhtoan, ) ?> VNĐ
+                        </strong>
                     </li>
                 </ul>
                 <div class=" p-2">
                     <div class="form-group">
-                        <button type="submit" class="btn  btn-lg btn-block" style="background-color: #FBEE2C; color: #132A1E;" >TIẾP TỤC MUA SẮM</button>
+
+                        <a href="index.php?page=trangchu"><button type="submit" class="btn  btn-lg btn-block"
+                            style="background-color: #FBEE2C; color: #132A1E;">TIẾP TỤC MUA SẮM</button></a>
                     </div>
-              
+
                 </div>
             </div>
 

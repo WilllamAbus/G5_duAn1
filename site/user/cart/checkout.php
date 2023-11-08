@@ -30,43 +30,57 @@
         <div class="col-md-4 order-md-1 mb-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Giỏ hàng của bạn</span>
-            <span class="badge badge-secondary badge-pill">3</span>
+            
           </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 class="my-0">Tên sản phẩm 1</h6>
-                <small class="text-muted">Số lượng</small>
-              </div>
-              <span class="text-muted">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-              <h6 class="my-0">Tên sản phẩm 2</h6>
-              <small class="text-muted">Số lượng</small>
-              </div>
-              <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-              <h6 class="my-0">Tên sản phẩm 3</h6>
-              <small class="text-muted">Số lượng</small>
-              </div>
-              <span class="text-muted">$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
+          <?
+            $tong=0;
+            $i=0;
+            $ship =30000;
+            $tongthanhtoan=0;
+            $tongsl=0;
+            foreach($_SESSION['mycart'] as $cart){
+              $thanhtien= $cart[2] * $cart[4];
+              $tong= $tong + $thanhtien;
+              $tongthanhtoan = $ship + $tong;
+              $tongsl+=$cart[4];
+              $i+=1;
+              echo'
+              <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Sản Phẩm '.$i.': '.$cart[1].'</h6>
+                  <small class="text-muted">Số lượng:'.$cart[4].'</small>
+                </div>
+                <span class="text-muted">'.number_format($cart[2],).' VNĐ</span>
+              </li>
+              ';
+            }
+            
+          ?>
+          
+              <li class="list-group-item d-flex justify-content-between bg-light">
+                <div class="text-success">
+                  <h6 class="my-0">Giảm giá</h6>
+                  <small>Mã giảm giá</small>
+                </div>
+                <span class="text-success">0</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between bg-light">
               <div class="text-success">
-                <h6 class="my-0">Giảm giá</h6>
-                <small>Mã giảm giá</small>
+                <h6 class="my-0">Tiền Ship</h6>
+                
               </div>
-              <span class="text-success">-$5</span>
+              <span class="text-success"><?= number_format($ship,)?> VNĐ</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Tổng tiền</span>
-              <strong>$20</strong>
-            </li>
-          </ul>
-
+       <li class="list-group-item d-flex justify-content-between">
+                <span>Tổng tiền</span>
+                <strong> <?=number_format( $tongthanhtoan,)?> VNĐ </strong>
+              </li>
+            </ul>
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Tổng số lượng sản phẩm</span>
+            <span class="badge badge-secondary badge-pill"><?=$tongsl?></span>
+          </h4>
         </div>
         <div class="col-lg-8 order-md-1">
           <h4 class="mb-3">Thông tin</h4>
