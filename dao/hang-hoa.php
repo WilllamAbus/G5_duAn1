@@ -167,14 +167,12 @@ function insert_sanpham($ten_hh,$don_gia,$giam_gia,$hinh,$mo_ta,$ngay_nhap,$dac_
     return $listProduct;
 }
 
-
 function san_pham_select_keyword($inputProduct){
     $sql = "SELECT * FROM hang_hoa hh "
             . " JOIN loai_hang lo ON lo.ma_loai=hh.ma_loai "
             . " WHERE ten_hh LIKE ? OR ten_loai LIKE ?";
     return pdo_query($sql, '%'.$inputProduct.'%', '%'.$inputProduct.'%');
 }
-
 function delete_sanpham($ma_hh){
     $sql="delete from hang_hoa where ma_hh=".$ma_hh;
     pdo_execute($sql);
@@ -219,3 +217,4 @@ function san_pham_select_by_id($ma_hh){
     $sql = "SELECT * FROM hang_hoa WHERE ma_hh=?";
     return pdo_query_one($sql, $ma_hh);
 }
+

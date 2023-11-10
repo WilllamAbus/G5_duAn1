@@ -31,8 +31,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">The Hitch Hikers</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>350.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>500.000 đ</del></h6>
+                            <h5>350.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>500.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -62,8 +62,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href=""> BasicEconomic</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$123.00</h5>
-                            <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            <h5>123.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>123.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -94,8 +94,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">BegPofDummie</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>3550.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>400.000 đ</del></h6>
+                            <h5>3550.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>400.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -126,8 +126,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">Computer Priciples</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>420.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            <h5>420.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>123.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -158,8 +158,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">The 100 Best Non Fiction</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>300.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>290.000 đ</del></h6>
+                            <h5>300.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>290.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -190,8 +190,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">The Curious Dog</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>450.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>700.000 đ</del></h6>
+                            <h5>450.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>700.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -222,8 +222,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">The Intelligent Investor</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>400.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>500.000 đ</del></h6>
+                            <h5>400.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>500.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -254,8 +254,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">TheThing</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>590.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>800.000 đ</del></h6>
+                            <h5>590.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>800.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -293,8 +293,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">TheOBS</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>390.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>590.000 đ</del></h6>
+                            <h5>390.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>590.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -323,8 +323,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">The End OF Self Help</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>490.000 đ</h5>
-                            <h6 class="text-muted ml-2"><del>600.000 đ</del></h6>
+                            <h5>490.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>600.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -353,8 +353,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">Making The Complex</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$123.00</h5>
-                            <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            <h5>123.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>123.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -383,8 +383,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">BBB.jpg</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$123.00</h5>
-                            <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            <h5>123.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>123.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -413,8 +413,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">MakingTheComplex</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$123.00</h5>
-                            <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            <h5>123.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>123.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -443,8 +443,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">TheEndOFSelfHelp</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$123.00</h5>
-                            <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            <h5>123.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>123.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -473,8 +473,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">TheThing</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$123.00</h5>
-                            <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            <h5>123.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>123.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>
@@ -503,8 +503,8 @@ include './user/components/slider.php';
                     <div class="text-center py-4">
                         <a class="h6 text-decoration-none text-truncate" href="">The Obstace</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>$123.00</h5>
-                            <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                            <h5>123.000 VNĐ</h5>
+                            <h6 class="text-muted ml-2"><del>123.000 VNĐ</del></h6>
                         </div>
                         <div class="d-flex align-items-center justify-content-center mb-1">
                             <small class="fa fa-star text-primary mr-1"></small>

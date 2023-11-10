@@ -55,12 +55,12 @@
             </a>
         </div>
         <div class="col-6  text-left">
-            <form action="">
+            <form action="./?page=sanpham" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Tìm Kiếm Sản Phẩm...">
+                    <input type="text" name="inputProduct" class="form-control" placeholder="Tìm Kiếm Sản Phẩm...">
                     <div class="input-group-append">
                         <span class="input-group-text bg-transparent text-primary">
-                            <i class="fa fa-search"></i>
+                          <button style="border: none; background: none;" ><i class="fa fa-search"></i></button>  
                         </span>
                     </div>
                 </div>

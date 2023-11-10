@@ -46,11 +46,11 @@ echo'
             </small>
         </div>
         <h3 class="font-weight-semi-bold mb-4">
-        '.    number_format($giam_gia).' %
+        '.    number_format($giam_gia).'%
         
         </h3>
         <h3 class="font-weight-semi-bold mb-4">
-        '.number_format($don_gia).' đ
+        '.number_format($don_gia).' VNĐ
             
         </h3>
         <p class="mb-4"> Sự lựa chọn của tác giả về 100 cuốn sách phi hư cấu hay nhất
@@ -64,42 +64,18 @@ echo'
     <div class="d-flex align-items-center mb-4 pt-2" name="soluong">
     <p>Số Lượng:  <input type="number" id="number" name="soluong" value="1" min="0" max="10" /> </p><br>
         </div>
-       
-        
         <input type="hidden" name="mahh" value="' . $ma_hh . '">
         <input type="hidden" name="tenhh" value="' . $ten_hh . '">
         <input type="hidden" name="dongia" value="' . $don_gia . '">
         <input type="hidden" name="hinh" value="' . $hinh . '">
-        <input type="submit" name="addcart" class="addcart" value="Thêm vào giỏ hàng">
+        <input type="submit" name="addcart" class="btn btn-primary" class="addcart" value="Thêm vào giỏ hàng">
         </form>
     </div>
-   
-        <!-- <div class="d-flex pt-2">
-        <strong class="text-dark mr-2">Share on:</strong>
-        <div class="d-inline-flex">
-            <a class="text-dark px-2" href="">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a class="text-dark px-2" href="">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a class="text-dark px-2" href="">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a class="text-dark px-2" href="">
-                <i class="fab fa-pinterest"></i>
-            </a>
-        </div>
-    </div> -->
     </div>
 </div>
 </div>
 
-';
-
-
-
-            
+';            
         }
     }
     ;
