@@ -1,14 +1,14 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-      <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
@@ -18,9 +18,14 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
-      <!-- <li class="nav-item d-none d-sm-inline-block">
-        <a href="./?page=logout" class="nav-link">Log Out</a>
-      </li> -->
+      <?php
+      if(isset($_COOKIE['user_admin'])){
+    $admin = $_COOKIE['user_admin'];
+}
+      ?>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="" class="nav-link"><?=$admin?></a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -146,4 +151,5 @@
   </nav>
   <!-- /.navbar -->
 </body>
+
 </html>

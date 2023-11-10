@@ -36,6 +36,8 @@ $listBinhLuan = loadall_binhluan();
   <div class="card-body">
     <h5 class="card-title">Bình luận</h5>
     <p class="card-text">' . $noi_dung . '</p>
+    <p class="card-text ">' . $ma_nd . '</p>
+    <p class="card-text ">' . $ngay_lap . '</p>
     <a href="#" class="btn btn-primary">Trả lời</a>
   </div>
 
@@ -47,11 +49,25 @@ $listBinhLuan = loadall_binhluan();
 
 
   <form action="binhLuanForm.php" method="post" class="d-flex flex-row add-comment-section mt-4 mb-4">
+    <?
+      if(isset($_COOKIE['ma_nd'])){
+        // extract($_COOKIE['ma_nd']);
+    
+    ?>
     <img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38">
     <input type="hidden" name="ma_hh" value="<?= $ma_hh ?>">
 
     <input type="text" class="form-control mr-3" placeholder="Add comment" name="noi_dung">
     <input class="btn btn-primary" name="guiBinhLuan" type="submit" value="Bình luận">
+    <?
+      }else{
+
+    ?>
+    <a href="index.php?page=login" style="text-decoration: none; color: blue;"></a>Đăng nhập để bình luận</a>
+    <?
+      }
+    ?>
+   
   </form>
 
   <?php
@@ -59,26 +75,24 @@ $listBinhLuan = loadall_binhluan();
     $noi_dung = $_POST['noi_dung'];
     $ma_hh = $_POST['ma_hh'];
     // Check if the `ma_kh` key exists in the `$_COOKIE['user']` array
-    if (isset($_COOKIE['ma_kh'])) {
-      // Get the `ma_kh` value from the `$_COOKIE['user']` array
-      $ma_kh = $_COOKIE['ma_kh'];
-    } else {
-      // If the `ma_kh` key does not exist, set it to an empty string
-      $ma_kh = '';
-    }
+  $ma_nd = $_COOKIE['ma_nd'];
+   
 
     $ngay_lap = date('d/m/Y h:i:sa ');
     // binh_luan_insert($ma_hh, $ma_kh, $noi_dung, $ngay_lap);
     $conn = pdo_get_connection();
-    // Thêm bình luận vào cơ sở dữ liệu
-    $sql = "INSERT INTO binh_luan (ma_kh, ma_hh, noi_dung, ngay_lap) VALUES (:ma_kh, :ma_hh, :noi_dung, :ngay_lap)";
+    $sql = "INSERT INTO binh_luan (ma_nd, ma_hh, noi_dung, ngay_lap) VALUES (:ma_nd, :ma_hh, :noi_dung, :ngay_lap)";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(":ma_kh", $ma_kh);
+    $stmt->bindParam(":ma_nd", $ma_nd);
     $stmt->bindParam(":ma_hh", $ma_hh);
     $stmt->bindParam(":noi_dung", $noi_dung);
     $stmt->bindParam(":ngay_lap", $ngay_lap);
-
+   
     $stmt->execute();
+    header("Location: " . $_SERVER['HTTP_REFERER']);
+    // Thêm bình luận vào cơ sở dữ liệu
+ 
+   
 
   }
 

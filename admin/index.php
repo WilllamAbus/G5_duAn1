@@ -1,6 +1,6 @@
 <?php
 session_start();
-ob_start();
+
 ?>
 
 <?php
@@ -12,6 +12,7 @@ include_once("../dao/hang-hoa.php");
 include_once("../dao/khach-hang.php");
 include_once "../dao/thong-ke.php";
 include_once "../dao/nhan_vien.php";
+include_once "../dao/phan-hoi-binh-luan.php  ";
 
 
 ?>
@@ -533,17 +534,17 @@ include_once "../dao/nhan_vien.php";
               case 'suanv':
 
                 if (isset($_GET['ma_nv']) && ($_GET['ma_nv'])) {
-                 
+
                   $employee = loadone_nhanvien($_GET['ma_nv']);
-                
+
                 }
 
                 // Get employee data
-               
-               
+          
+
 
                 // Display employee information in the form
-            
+          
                 //   //   //     var_dump($dskhachhang); die();
                 include("nhanVien/update.php");
                 break;
@@ -650,7 +651,34 @@ include_once "../dao/nhan_vien.php";
                 include "binhLuan/list.php";
                 break;
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
+              case 'phan-hoi-binh-luan':
 
+                // extract($_REQUEST);
+                if(exist_param('phanHoiBL')){
+                  $ma_bl = $_POST['ma_bl'];
+                  $ma_hh = $_POST['ma_hh'];
+                  $phan_hoi = $_POST['phan_hoi'];
+                  $ma_nv = $_COOKIE['user_admin'];
+                  $ngay_them = date_create()->format('Y-m-d H:i:s');
+                  phan_hoi_binh_luan_insert($ma_bl,$ma_nv, $ma_hh,$phan_hoi,$ngay_them);
+                }else{
+                  echo "<script>alert('Phản hồi không thành công')</script>";
+                }
+                $items = thong_ke_binh_luan();
+                // $ma_hh = '';
+                // if (isset($_GET['ma_hh'])) {
+                //     extract($_REQUEST);
+                //     $ma_hh = $_GET['ma_hh'];
+                    
+                  
+                //   }else{
+                   
+                //   }
+               
+             
+
+                include "binhLuan/list.php";
+                break;
               case "logout":
                 include("logout.php");
                 break;

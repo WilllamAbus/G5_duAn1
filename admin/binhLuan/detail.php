@@ -68,9 +68,12 @@
                                 <thead>
                                     <tr>
 
+                                        <th>Mã bình luận</th>
                                         <th>Nội dung</th>
                                         <th>Ngày bình luận</th>
                                         <th>Người bình luận</th>
+                                        <th>Phản hồi</th>
+                                        <th>Chức năng</th>
 
                                     </tr>
                                 </thead>
@@ -84,8 +87,10 @@
                                         extract($item);
                                         ?>
                                         <tr>
+                                            <td><input type="checkbox" name="ma_bl[]" value="<?= $ma_bl ?>" id="">
+                                                <?= $ma_bl ?>
+                                            </td>
 
-                                           
                                             <td>
                                                 <?= $noi_dung ?>
                                             </td>
@@ -93,19 +98,26 @@
                                                 <?= $ngay_lap ?>
                                             </td>
                                             <td>
-                                                <?= $ma_kh ?>
+                                                <?= $ma_nd ?>
                                             </td>
-                                            <!-- <td>
+                                            <td>
                                                 <form action="index.php?page=phan-hoi-binh-luan&ma_bl=<?= $ma_bl ?>"
                                                     method="post" class="form-reppy">
+                                                    <input type="hidden" name="ma_bl" value="<?= $ma_bl ?>">
+                                                    <input type="hidden" name="ma_hh" value="<?= $ma_hh ?>">
+
                                                     <input type="text" name="phan_hoi" id="" class="form-control"
                                                         placeholder="Phản hồi">
-                                                    <input type="submit" name="" id="" class="btn-secondary col-md-3">
+
+                                                    <input type="submit" name="phanHoiBL" id=""
+                                                        class="btn-secondary col-md-3">
                                                 </form>
-                                            </td> -->
+                                            </td>
                                             <td>
+
                                                 <button class="btn btn-default"><a
                                                         href="index.php?page=xoa-binh-luan&ma_bl=<?= $ma_bl ?>">Xóa</a></button>
+
                                             </td>
 
                                             <!-- <a href="index.php?act=form-phan-hoi-binh-luan&ma_bl=">Phản hồi</a -->

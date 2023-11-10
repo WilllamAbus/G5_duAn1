@@ -1,11 +1,14 @@
 <?php
 session_start();
+ob_start();
 include 'user/components/stylesshet.php';
 include 'user/components/header.php';
 require_once '../common/global.php';
 include_once '../dao/hang-hoa.php';
 include_once '../dao/loai.php';
-// include_once '../dao/sanpham.php';
+include_once '../dao/user.php';
+include_once '../dao/binh-luan.php';
+include_once '../dao/phan-hoi-binh-luan.php';
 ?>
 
 <?
@@ -24,6 +27,10 @@ if (isset($_GET["page"])) {
             break;
 
         case 'giohang':
+            if (!isset($_COOKIE['ma_nd'])) {
+                header('Location: index.php?page=login');
+                exit();
+            }
             if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
             if (isset($_POST['addcart']) && ($_POST['addcart'])) {
                 $mahh = $_POST['mahh'];
@@ -61,6 +68,8 @@ if (isset($_GET["page"])) {
             include 'user/cart/orderComplete.php';
             break;
         case 'sanphamct':
+            
+            
             include 'user/product/productdetail.php';
             break;
         case 'danhmuc':
@@ -94,4 +103,4 @@ if (isset($_GET["page"])) {
 include 'user/components/footer.php';
 
 
-
+ob_end_flush();

@@ -20,6 +20,7 @@
                         <?php
                         if (isset($_COOKIE['ma_nd'])) {
                             echo $_COOKIE['ma_nd'];
+                         
                             
                         } 
                         ?>

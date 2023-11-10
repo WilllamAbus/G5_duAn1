@@ -67,6 +67,7 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                    <th>Mã hàng hóa</th>
                                         <th>Tên hàng hóa</th>
                                         <th>Số lượng</th>
                                         <th>Cũ nhất </th>
@@ -90,6 +91,9 @@
                                         extract($item);
                                         ?>
                                         <tr>
+                                        <td>
+                                                <?= $ma_hh ?>
+                                            </td>
                                             <td>
                                                 <?= $ten_hh ?>
                                             </td>
@@ -103,9 +107,17 @@
                                                 <?= $moi_nhat ?>
                                             </td>
                                             <td>
-                                                <button class="btn btn-default"><a
-                                            href="index.php?page=chi-tiet-binh-luan&ma_hh=<?= $ma_hh ?>">Chi
-                                                        tiết</a></button>
+
+
+                                                <form action="" method="post">
+                                                 
+
+
+
+                                                    <a href="index.php?page=chi-tiet-binh-luan&ma_hh=<?= $ma_hh ?>"
+                                                        type="submit"  class="btn btn-default">Chi
+                                                        tiết</a>
+                                                </form>
                                             </td>
 
                                             <?php

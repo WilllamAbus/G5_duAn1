@@ -9,14 +9,14 @@
         if (($product) == true) {
 
             extract($product);
-echo'
+            echo '
 <div class="row px-xl-5">
 <div class="col-lg-5 mb-30">
     <div id="product-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner bg-light">
             <div class="carousel-item active p-lg-4">
                 <img style="max-width: 70%; max-height: 120vh; margin: 0; " class=" rounded-4 fit"
-                    src="../controller/hinh/'.$hinh.'" alt="">
+                    src="../controller/hinh/' . $hinh . '" alt="">
             </div>
 
         </div>
@@ -32,7 +32,7 @@ echo'
 <div class="col-lg-7 h-auto mb-30">
     <div class="h-100 bg-light p-30">
         <h3>
-            '.$ten_hh.'
+            ' . $ten_hh . '
         </h3>
         <div class="d-flex mb-3">
             <div class="text-primary mr-2">
@@ -42,15 +42,15 @@ echo'
                 <small class="fas fa-star-half-alt"></small>
                 <small class="far fa-star"></small>
             </div>
-            <small class="pt-1">('. $so_luot_xem .')
+            <small class="pt-1">(' . $so_luot_xem . ')
             </small>
         </div>
         <h3 class="font-weight-semi-bold mb-4">
-        '.    number_format($giam_gia).' %
+        ' . number_format($giam_gia) . ' %
         
         </h3>
         <h3 class="font-weight-semi-bold mb-4">
-        '.number_format($don_gia).' đ
+        ' . number_format($don_gia) . ' đ
             
         </h3>
         <p class="mb-4"> Sự lựa chọn của tác giả về 100 cuốn sách phi hư cấu hay nhất
@@ -70,7 +70,7 @@ echo'
         <input type="hidden" name="tenhh" value="' . $ten_hh . '">
         <input type="hidden" name="dongia" value="' . $don_gia . '">
         <input type="hidden" name="hinh" value="' . $hinh . '">
-        <input type="submit" name="addcart" class="addcart" value="Thêm vào giỏ hàng">
+        <input type="submit" name="addcart"   class="btn btn-warning shadow-0" value="Thêm vào giỏ hàng">
         </form>
     </div>
    
@@ -99,7 +99,7 @@ echo'
 
 
 
-            
+
         }
     }
     ;
@@ -138,7 +138,7 @@ echo'
 
                     <div class="tab-pane fade show active" id="tab-pane-1">
                         <div class="row">
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <h4 class="mb-4">Danh Sách Bình Luận</h4>
                                 <div class="media mb-4">
                                     <img src="./user/style/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1"
@@ -156,19 +156,32 @@ echo'
                                             et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-6">
-                                <h4 class="mb-4">Bình Luận</h4>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="message">Nhập Bình Luận *</label>
-                                        <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                <!-- <h4 class="mb-4">Bình Luận</h4> -->
+                                <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#binhLuan").load("user/binhLuan/binhLuanForm.php", { ma_hh: <?= $ma_hh ?> });
+                                    });
+                                </script> -->
+
+
+
+
+                                <div class="commented-section mt-2">
+                                    <!-- <div class="d-flex flex-row align-items-center commented-user">
+                  <h5 class="mr-2">Le A</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">
+                  </span>
+                </div> -->
+                                    <div class="comment-text-sm" id="binhLuan">
+                                        <iframe src="user/binhLuan/binhLuanForm.php?ma_hh=<?=$_GET['ma_hh']?>" frameborder="0" width="1270px" height="400px"></iframe>
+
                                     </div>
 
-                                    <div class="form-group mb-0">
-                                        <input type="submit" value="Gửi" class="btn btn-primary px-3">
-                                    </div>
-                                </form>
+
+
+                                </div>
                             </div>
                         </div>
                     </div>
