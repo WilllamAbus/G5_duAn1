@@ -151,7 +151,7 @@ function insert_sanpham($ten_hh,$don_gia,$giam_gia,$hinh,$mo_ta,$ngay_nhap,$dac_
    }
 
 
-   function loadall_sanpham( $inputProduct="",$ma_loai=0){
+   function loadall_sanpham( $inputProduct,$ma_loai=0){
     $LIMIT = 3;
     $num = isset($_GET['page_num']) ? intval($_GET['page_num']) :1;
     $offset = ($num - 1) * $LIMIT;
@@ -159,14 +159,13 @@ function insert_sanpham($ten_hh,$don_gia,$giam_gia,$hinh,$mo_ta,$ngay_nhap,$dac_
     if( $inputProduct!=""){
         $sql.=" and ten_hh like '%". $inputProduct."%'";
     }
-    if($ma_loai>0){
+    if($ma_loai > 0){
         $sql.=" and ma_loai ='".$ma_loai."'";
     }
     $sql.=" order by ma_hh desc limit $offset, $LIMIT";
     $listProduct = pdo_query($sql);
     return $listProduct;
 }
-
 function san_pham_select_keyword($inputProduct){
     $sql = "SELECT * FROM hang_hoa hh "
             . " JOIN loai_hang lo ON lo.ma_loai=hh.ma_loai "
@@ -216,5 +215,10 @@ pdo_execute($sql);
 function san_pham_select_by_id($ma_hh){
     $sql = "SELECT * FROM hang_hoa WHERE ma_hh=?";
     return pdo_query_one($sql, $ma_hh);
+}
+function load_hanghoa_giathapnha(){
+    $sql = "SELECT * FROM hang_hoa WHERE 1 order by don_gia asc limit 0,9 ";
+    $dshanghoa = pdo_query($sql);
+    return $dshanghoa;
 }
 

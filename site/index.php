@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include 'user/components/stylesshet.php';
 include 'user/components/header.php';
@@ -27,12 +28,12 @@ if (isset($_GET["page"])) {
                 $inputProduct = " ";
             }
             if (isset($_GET['maloai']) && ($_GET['maloai'] > 0)) {
-                $maloai = $_GET['maloai'];
+                $ma_loai = $_GET['maloai'];
             } else {
-                $maloai = 0;
+                $ma_loai = 0;
 
             }
-            $dshh = loadall_sanpham($inputProduct, $ma_loai = 0);
+            $dshh = loadall_sanpham($inputProduct, $ma_loai);
             //$product = san_pham_select_trend();
             include 'user/product/product.php';
             break;
@@ -86,7 +87,7 @@ if (isset($_GET["page"])) {
                 }
             }
             if (!isset($erremail) && !isset($errhoten) && !isset($errsdt) && !isset($errdiachi)) {
-                header('Location: index.php?page=orderComplete');
+               // header('Location: index.php?page=orderComplete');
             }
             include 'user/cart/checkout.php';
             break;

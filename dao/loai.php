@@ -85,7 +85,7 @@ function loadall_danhmuc(){
     // $offset = ($num - 1) * $LIMIT;
    
     $sql="select * from loai_hang order by ma_loai desc";
-    $listdanhmuc=pdo_query($sql);
+    $listdanhmuc = pdo_query($sql);
     return $listdanhmuc;
 }
 

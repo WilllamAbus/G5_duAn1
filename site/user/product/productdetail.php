@@ -1,22 +1,22 @@
-<div class="container-fluid pb-5">
+    <div class="container-fluid pb-5">
     <?php
     $ma_hh = '';
     if (isset($_GET['ma_hh'])) {
         extract($_REQUEST);
         $ma_hh = $_GET['ma_hh'];
-
+        hang_hoa_tang_so_luot_xem($ma_hh);
         $product = san_pham_select_by_id($ma_hh);
         if (($product) == true) {
 
             extract($product);
-echo'
+            echo '
 <div class="row px-xl-5">
 <div class="col-lg-5 mb-30">
     <div id="product-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner bg-light">
             <div class="carousel-item active p-lg-4">
-                <img style="max-width: 70%; max-height: 120vh; margin: 0; " class=" rounded-4 fit"
-                    src="../controller/hinh/'.$hinh.'" alt="">
+                <img style="max-width: 70%; max-height: 120vh; margin-left: 70px ; " class=" rounded-4 fit"
+                    src="../controller/hinh/' . $hinh . '" alt="">
             </div>
 
         </div>
@@ -29,10 +29,11 @@ echo'
     </div>
 </div>
 
+
 <div class="col-lg-7 h-auto mb-30">
     <div class="h-100 bg-light p-30">
         <h3>
-            '.$ten_hh.'
+            ' . $ten_hh . '
         </h3>
         <div class="d-flex mb-3">
             <div class="text-primary mr-2">
@@ -42,15 +43,15 @@ echo'
                 <small class="fas fa-star-half-alt"></small>
                 <small class="far fa-star"></small>
             </div>
-            <small class="pt-1">('. $so_luot_xem .')
+            <small class="pt-1">(' . $so_luot_xem . ')
             </small>
         </div>
         <h3 class="font-weight-semi-bold mb-4">
-        '.    number_format($giam_gia).'%
+        ' . number_format($giam_gia) . '%
         
         </h3>
         <h3 class="font-weight-semi-bold mb-4">
-        '.number_format($don_gia).' VNĐ
+        ' . number_format($don_gia) . ' VNĐ
             
         </h3>
         <p class="mb-4"> Sự lựa chọn của tác giả về 100 cuốn sách phi hư cấu hay nhất
@@ -75,7 +76,7 @@ echo'
 </div>
 </div>
 
-';            
+';
         }
     }
     ;
@@ -293,5 +294,6 @@ echo'
 <style>
     .picture {
         height: 340px;
+       
     }
 </style>

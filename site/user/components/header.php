@@ -1,6 +1,9 @@
-
+<?
+include_once '../dao/loai.php';
+?>
 <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <!-- Topbar Start -->
 <div class="container-fluid">
     <div class="row bg-secondary py-1 px-xl-5">
@@ -16,19 +19,21 @@
             <div class="d-inline-flex align-items-center">
                 <div class="btn-group">
                     <!-- <button type="submit" ></button> -->
-                    <a class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown" style="text-decoration: none;">Xin chào,
+                    <a class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown"
+                        style="text-decoration: none;">Xin chào,
                         <?php
                         if (isset($_COOKIE['ma_nd'])) {
                             echo $_COOKIE['ma_nd'];
-                            
-                        } 
+
+                        }
                         ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="index.php?page=signup">Đăng Kí</a>
                         <a class="dropdown-item" href="index.php?page=signup">Thông tin tài khoản</a>
                         <!-- <button  type="button"></button> -->
-                        <button class="dropdown-item" type="button"><a style="text-decoration: none; color: red;" href="">Đăng Xuất</a></button>
+                        <button class="dropdown-item" type="button"><a style="text-decoration: none; color: red;"
+                                href="">Đăng Xuất</a></button>
                     </div>
                 </div>
             </div>
@@ -60,7 +65,7 @@
                     <input type="text" name="inputProduct" class="form-control" placeholder="Tìm Kiếm Sản Phẩm...">
                     <div class="input-group-append">
                         <span class="input-group-text bg-transparent text-primary">
-                          <button style="border: none; background: none;" ><i class="fa fa-search"></i></button>  
+                            <button style="border: none; background: none;"><i class="fa fa-search"></i></button>
                         </span>
                     </div>
                 </div>
@@ -81,7 +86,8 @@
                     <span class="material-symbols-outlined" style="font-size: 41px; color: #FBEE2C;">
                         shopping_cart
                     </span>
-                    <span class="badge border border-secondary rounded-circle" style="padding-bottom: 2px; color: black; ">8</span>
+                    <span class="badge border border-secondary rounded-circle"
+                        style="padding-bottom: 2px; color: black; ">8</span>
                 </a>
             </div>
 
@@ -92,11 +98,13 @@
 <div class="container-fluid bg-dark mb-30">
     <div class="row px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
-            <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
+            <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse"
+                href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
                 <h6 class=" m-0"><i class="fa fa-bars mr-2"></i>Danh Mục Sản Phẩm</h6>
                 <i class="fa fa-angle-down text-dark"></i>
             </a>
-            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+            <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light"
+                id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                 <div class="navbar-nav w-100">
                     <!-- <div class="nav-item dropdown dropright">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i class="fa fa-angle-right float-right mt-1"></i></a>
@@ -106,11 +114,15 @@
                                 <a href="" class="dropdown-item">Baby's Dresses</a>
                             </div>
                         </div> -->
-                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Kinh tế</a>
-                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Tài chính</a>
-                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Lập trình</a>
-                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Văn học</a>
-                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Tự nhiên</a>
+
+                    <?php
+                    $listdanhmuc = loadall_danhmuc();
+                    foreach ($listdanhmuc as $danhmuc) {
+                        extract($danhmuc);
+                        $link = "index.php?page=sanpham&maloai=" . $ma_loai;
+                        echo '<a class="nav-item nav-link" href="' . $link . '">' . $ten_loai . '</a>';
+                    }
+                    ?>
                     <!-- <a href="" class="nav-item nav-link">Jumpsuits</a>
                         <a href="" class="nav-item nav-link">Blazers</a>
                         <a href="" class="nav-item nav-link">Jackets</a>
