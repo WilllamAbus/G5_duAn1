@@ -66,29 +66,29 @@ if (isset($_GET["page"])) {
             include 'user/cart/cart.php';
             break;
         case 'checkout':
-            if (isset($_POST['checkout']) && ($_POST['checkout'])) {
-                $email = isset($_POST['email']) ? $_POST['email'] : '';
-                $hoten = isset($_POST['hoten']) ? $_POST['hoten'] : '';
-                $sdt = isset($_POST['sdt']) ? $_POST['sdt'] : '';
-                $diachi = isset($_POST['diachi']) ? $_POST['diachi'] : '';
-                if (empty($email)) {
-                    $erremail = "Email trống";
-                } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $erremail = "Email sai định dạng";
-                }
-                if (empty($hoten)) {
-                    $errhoten = "Họ tên trống";
-                }
-                if (empty($sdt)) {
-                    $errsdt = "Số điện thoại trống";
-                }
-                if (empty($diachi)) {
-                    $errdiachi = "Địa chỉ trống";
-                }
-            }
-            if (!isset($erremail) && !isset($errhoten) && !isset($errsdt) && !isset($errdiachi)) {
-               // header('Location: index.php?page=orderComplete');
-            }
+            // if (isset($_POST['checkout']) && ($_POST['checkout'])) {
+            //     $email = isset($_POST['email']) ? $_POST['email'] : '';
+            //     $hoten = isset($_POST['hoten']) ? $_POST['hoten'] : '';
+            //     $sdt = isset($_POST['sdt']) ? $_POST['sdt'] : '';
+            //     $diachi = isset($_POST['diachi']) ? $_POST['diachi'] : '';
+            //     if (empty($email)) {
+            //         $erremail = "Email trống";
+            //     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            //         $erremail = "Email sai định dạng";
+            //     }
+            //     if (empty($hoten)) {
+            //         $errhoten = "Họ tên trống";
+            //     }
+            //     if (empty($sdt)) {
+            //         $errsdt = "Số điện thoại trống";
+            //     }
+            //     if (empty($diachi)) {
+            //         $errdiachi = "Địa chỉ trống";
+            //     }
+            // }
+            // if (!isset($erremail) && !isset($errhoten) && !isset($errsdt) && !isset($errdiachi)) {
+            //    // header('Location: index.php?page=orderComplete');
+            // }
             include 'user/cart/checkout.php';
             break;
         case 'orderComplete':

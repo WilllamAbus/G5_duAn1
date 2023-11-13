@@ -1,4 +1,42 @@
+<?
+ob_start();
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $hoten = isset($_POST['hoten']) ? $_POST['hoten'] : '';
+    $sdt = isset($_POST['sdt']) ? $_POST['sdt'] : '';
+    $diachi = isset($_POST['diachi']) ? $_POST['diachi'] : '';
+    if (empty($email)) {
+        $erremail = "Email trống";
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erremail = "Email sai định dạng";
+    }
+    if (empty($hoten)) {
+        $errhoten = "Họ tên trống";
+    }
+    if (empty($sdt)) {
+        $errsdt = "Số điện thoại trống";
+    }
+    if (empty($diachi)) {
+        $errdiachi = "Địa chỉ trống";
+    }
+  
+if (!isset($erremail) && !isset($errhoten) && !isset($errsdt) && !isset($errdiachi)) {
+   //header('Location: index.php?page=orderComplete');
+   if (headers_sent()) {
+    die('
+    <div class="alert alert-success">
+    <strong>Cảm ơn bạn đã đặt hàng: </strong><a href="index.php?page=orderComplete">Click để kiểm tra đơn hàng</a>
+</div>
+    ');
+   
+}
+else{
+    exit(header("Location:  index.php?page=orderComplete"));
 
+}
+  }
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -217,3 +255,6 @@
 </body>
 
 </html>
+<?
+ob_end_flush();
+?>

@@ -11,7 +11,6 @@
 
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
-
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,11 +22,14 @@
 
     <div class="container">
         <div class="py-5 text-center">
-            <h2>CẢM ƠN QUÝ KHÁCH</h2>
+            <h2>Đơn hàng của bạn</h2>
         </div>
 
         <div class="row">
             <div class="col-lg-12 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">SẢN PHẨM CỦA BẠN</span>
+                    </h4>
                     <?
                     $tong = 0;
                     $i = 0;
@@ -41,13 +43,6 @@
                         $tongsl += $cart[4];
                         $i += 1;
                         echo ' 
-                        <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-muted">SẢN PHẨM CỦA BẠN</span>
-                        <span class="badge badge-secondary badge-pill">Tổng số lượng sản phẩm
-                             '.$tongsl.'
-                        </span>
-                    </h4>
-    
                     <ul class="list-group mb-3">
                        <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
@@ -71,11 +66,16 @@
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
                             <h6 class="my-0">Tiền Ship</h6>
-
                         </div>
                         <span class="text-success">
                             <?= number_format($ship, ) ?> VNĐ
                         </span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Tổng số lượng sản phẩm</span>
+                        <strong>
+                            <?= number_format($tongsl, ) ?>
+                        </strong>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Tổng tiền</span>
