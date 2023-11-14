@@ -1,4 +1,12 @@
-
+<?
+include_once '../dao/loai.php';
+?>
+<style>
+    #abc form input:hover{
+        border-color: #FBEE2C;
+       
+    }
+</style>
 <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <!-- Topbar Start -->
@@ -55,13 +63,13 @@
                 <!-- <img src="img/logoweb.jpg"alt="no photo" width="100px"> -->
             </a>
         </div>
-        <div class="col-6  text-left">
-            <form action="">
+        <div class="col-6  text-left " id="abc">
+            <form action="index.php?page=sanpham" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Tìm Kiếm Sản Phẩm...">
-                    <div class="input-group-append">
+                    <input type="text" class="form-control" name="inputProduct" placeholder="Tìm Kiếm Sản Phẩm...">
+                    <div class="input-group-append" style="color:#FBEE2C;">
                         <span class="input-group-text bg-transparent text-primary">
-                            <i class="fa fa-search"></i>
+                            <button type="submit" style="border:none; background-color: yellow;"> <i class="fa fa-search" ></i></button>
                         </span>
                     </div>
                 </div>
@@ -107,11 +115,19 @@
                                 <a href="" class="dropdown-item">Baby's Dresses</a>
                             </div>
                         </div> -->
-                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Kinh tế</a>
-                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Tài chính</a>
+                        <?
+                         $listdanhmuc = loadall_danhmuc();
+                         foreach($listdanhmuc as $dm){
+                            extract($dm);
+                                $link = "index.php?page=sanpham&maloai=" . $ma_loai;
+                                echo ' <a href="'.$link.'" class="nav-item nav-link">'.$ten_loai.'</a>';   
+                         }
+                        ?>
+                   
+                    <!-- <a href="index.php?page=danhmuc" class="nav-item nav-link">Tài chính</a>
                     <a href="index.php?page=danhmuc" class="nav-item nav-link">Lập trình</a>
                     <a href="index.php?page=danhmuc" class="nav-item nav-link">Văn học</a>
-                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Tự nhiên</a>
+                    <a href="index.php?page=danhmuc" class="nav-item nav-link">Tự nhiên</a> -->
                     <!-- <a href="" class="nav-item nav-link">Jumpsuits</a>
                         <a href="" class="nav-item nav-link">Blazers</a>
                         <a href="" class="nav-item nav-link">Jackets</a>

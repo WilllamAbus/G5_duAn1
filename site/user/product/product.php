@@ -155,7 +155,7 @@
                         </div>
                     </div>
                     <?php
-                    foreach ($product as $sp){
+                    foreach ($hh as $sp){
                         extract($sp);
                         $href = "chi-tiet-san-pham?ma_hh=$ma_hh";
 						$prodID = $sp['ma_hh'];
