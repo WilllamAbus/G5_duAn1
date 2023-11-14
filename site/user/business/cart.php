@@ -176,3 +176,4 @@ function order_detail(){
     $order_list = chi_tiet_don_hang($ma_hd);
     client_render("cart/order-detail.php", compact('categories','order_list'));
 }
+

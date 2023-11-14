@@ -29,37 +29,50 @@
         <div class="row">
             <div class="col-lg-12 order-md-2 mb-4">
                     <?
-                    $tong = 0;
-                    $i = 0;
-                    $ship = 30000;
-                    $tongthanhtoan = 0;
-                    $tongsl = 0;
+                    // $tong = 0;
+                    // $i = 0;
+                    // $ship = 30000;
+                    // $tongthanhtoan = 0;
+                    // $tongsl = 0;
                     foreach ($_SESSION['mycart'] as $cart) {
-                        $thanhtien = $cart[2] * $cart[4];
-                        $tong = $tong + $thanhtien;
-                        $tongthanhtoan = $ship + $tong;
-                        $tongsl += $cart[4];
-                        $i += 1;
+                        // $thanhtien = $cart[2] * $cart[4];
+                        // $tong = $tong + $thanhtien;
+                        // $tongthanhtoan = $ship + $tong;
+                        // $tongsl += $cart['soluong'];
+                        // $i += 1;
                         echo ' 
                         <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-muted">SẢN PHẨM CỦA BẠN</span>
-                        <span class="badge badge-secondary badge-pill">Tổng số lượng sản phẩm
-                             '.$tongsl.'
-                        </span>
+                    
+                    
                     </h4>
     
                     <ul class="list-group mb-3">
                        <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
-                                <h6 class="my-0">Tên sản phẩm ' . $i . ': ' . $cart[1] . '</h6>
-                                <small class="text-muted">Số lượng: ' . $cart[4] . '</small>
+                                <h6 class="my-0">Tên sản phẩm : ' . $cart['ten_hh'] . '</h6>
+                                <img src="' . $cart['hinh'] . '"class="border rounded me-3" style="width: 76px; height: 116px;" />
+                                <small class="text-muted" style="color: black;">Số lượng: ' . $cart['soluong'] . '</small>
                             </div>
-                            <span class="text-muted">'.number_format($cart[2],).' VNĐ</span>
+                            <span class="text-muted">'.$cart['don_gia'].' VNĐ</span>
                         </li>';
 
                     }
 
 
+                    ?>
+
+                    <?
+                                      $tong=0;
+                          
+                                      $ship =30;
+                                      $castShip = number_format($ship, 3);
+                                      $tongthanhtoan=0;
+                                       $total = array_sum(array_map(function ($item) {
+                                          return floatval($item['don_gia']) * $item['soluong'];
+                                      }, $_SESSION['mycart']));
+                        
+                                      
+                                     $tongthanhtoan = $castShip + $total;
                     ?>
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
@@ -74,13 +87,13 @@
 
                         </div>
                         <span class="text-success">
-                            <?= number_format($ship, ) ?> VNĐ
+                            <?= $castShip ?> VNĐ
                         </span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Tổng tiền</span>
                         <strong>
-                            <?= number_format($tongthanhtoan, ) ?> VNĐ
+                            <?= number_format($tongthanhtoan, 3) ?> VNĐ
                         </strong>
                     </li>
                 </ul>

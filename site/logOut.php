@@ -6,7 +6,7 @@ ob_start();
   // Clear all session variables
   if(isset($_COOKIE['ma_nd']) ){
  
-    setcookie('ma_nd', "", time() - 3600);
+    setcookie('ma_nd', "", time() - 10800);
     unset($_COOKIE['ma_nd']);
   }
 

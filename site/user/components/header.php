@@ -37,7 +37,7 @@ include_once '../dao/loai.php';
                         <a class="dropdown-item" href="index.php?page=signup">Đăng Kí</a>
                         <a class="dropdown-item" href="index.php?page=signup">Thông tin tài khoản</a>
                         <!-- <button  type="button"></button> -->
-                        <button class="dropdown-item" type="button"><a style="text-decoration: none; color: red;" href="">Đăng Xuất</a></button>
+                        <a class="dropdown-item" style="text-decoration: none; color: red;" href="index.php?page=logout">Đăng Xuất</a>
                     </div>
                 </div>
             </div>
@@ -67,9 +67,9 @@ include_once '../dao/loai.php';
             <form action="index.php?page=sanpham" method="post">
                 <div class="input-group">
                     <input type="text" class="form-control" name="inputProduct" placeholder="Tìm Kiếm Sản Phẩm...">
-                    <div class="input-group-append" style="color:#FBEE2C;">
+                    <div class="input-group-append">
                         <span class="input-group-text bg-transparent text-primary">
-                            <button type="submit" style="border:none; background-color: yellow;"> <i class="fa fa-search" ></i></button>
+                            <button type="submit" style="border:none; background-color: white;"> <i class="fa fa-search"  style=" color: #FBEE2C;"></i></button>
                         </span>
                     </div>
                 </div>
@@ -90,7 +90,21 @@ include_once '../dao/loai.php';
                     <span class="material-symbols-outlined" style="font-size: 41px; color: #FBEE2C;">
                         shopping_cart
                     </span>
-                    <span class="badge border border-secondary rounded-circle" style="padding-bottom: 2px; color: black; ">8</span>
+                    <?php
+               $cartItemCount = 0;
+
+               // Check if the cart exists in the session
+               if (isset($_SESSION['mycart']) && is_array($_SESSION['mycart'])) {
+                   // Count the number of items in the cart
+                   $cartItemCount = count($_SESSION['mycart']);
+               }
+                  
+                    ?>
+
+                    <span class="badge border border-secondary rounded-circle" style="padding-bottom: 2px; color: black; ">
+                                 <?php echo $cartItemCount; ?>
+          
+                </span>
                 </a>
             </div>
 
