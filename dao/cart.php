@@ -33,10 +33,10 @@ function don_hang_update_total_bi_huy($ma_hd){
 
 function order_data(array $order_data){
     $conn = pdo_get_connection();
-     $sql = "INSERT INTO hoa_don(ma_hd,ma_kh,ten_kh,dia_chi,sdt,ngay_lap,pttt,tong_tien) " .
-         " VALUES(:ma_hd,:ma_kh,:ten_kh,:dia_chi,:sdt,:ngay_lap,:pttt,:tong_tien)";
+     $sql = "INSERT INTO hoa_don(ma_hd,ma_nd,ten_nd,dia_chi,sdt,ngay_lap,pttt,tong_tien) " .
+         " VALUES(:ma_hd,:ma_nd,:ten_nd,:dia_chi,:sdt,:ngay_lap,:pttt,:tong_tien)";
      $statement = $conn->prepare($sql);
-     $statement->execute($order_data);
+     $statement->execute();
 } 
 
 function order_detail_data(array $order_detail_data){
@@ -44,10 +44,65 @@ function order_detail_data(array $order_detail_data){
      $sql = "INSERT INTO hoa_don_chi_tiet(ma_hd,ma_hh,size,don_gia,so_luong,giam_gia,thanh_tien ) " .
          " VALUES(:ma_hd,:ma_hh,:size,:don_gia,:so_luong,:giam_gia,:thanh_tien)";
      $statement = $conn->prepare($sql);
-     $statement->execute($order_detail_data);
+     $statement->execute();
 } 
 function update_order_customer($ma_hd, $ten_kh, $dia_chi, $sdt){
     $sql = "UPDATE hoa_don SET ten_kh=?, dia_chi=?, sdt=? WHERE ma_hd = $ma_hd";
         pdo_execute($sql, $ten_kh, $dia_chi, $sdt);
 }
+
+
+/**
+ * Summary of sanpham_detail
+ * @param mixed $ma_hh
+ * @return void
+ */
+function sanpham_detail($ma_hh){
+    $conn = pdo_get_connection();
+    $sql = "SELECT * FROM hang_hoa h where h.ma_hh = $ma_hh";
+    $stmt = $conn->prepare( $sql );
+    $stmt->bindParam(':mahh', $ma_hh, PDO::PARAM_INT);
+  
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Close the database connection
+    $conn = null;
+
+    // Return the product details
+    return $result;
+ 
+}
+
+
+function addToCart($ma_hh, $ten_hh, $don_gia, $hinh, $soluong) {
+    // Check if the cart has been initialized
+    if (!isset($_SESSION['mycart'])) {
+        $_SESSION['mycart'] = array();
+    }
+
+    // Check if the product is already in the cart
+    $index = array_search($ma_hh, array_column($_SESSION['mycart'], 'ma_hh'));
+    if($index !== null){
+        $_SESSION['mycart'][$index]['soluong'] += $soluong;
+    }else{
+        $_SESSION['cart'][] = array(
+            'ma_hh' => $ma_hh,
+            'ten_hh' => $ten_hh,
+            'don_gia' => $don_gia,
+            'hinh' => $hinh,
+            'soluong' => $soluong
+        );
+    }
+   
+  
+    // if ($index !== false) {
+    //     // Update quantity if the product is already in the cart
+     
+    // } else {
+    //     // Add a new item to the cart
+      
+    // }
+}
+
 ?>

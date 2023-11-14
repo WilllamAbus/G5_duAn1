@@ -24,55 +24,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
 
-  <!-- Bootstrap core CSS -->
-  <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="form-validation.css" rel="stylesheet">
-</head>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
 
-<body class="bg-light">
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <div class="container">
-    <div class="py-5 text-center">
-      <h2>THANH TOÁN</h2>
-    </div>
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
 
-    <div class="row">
-      <div class="col-md-4 order-md-1 mb-4">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Giỏ hàng của bạn</span>
+  <body class="bg-light">
 
-        </h4>
-        <?
-        $tong = 0;
-        $i = 0;
-        $ship = 30000;
-        $tongthanhtoan = 0;
-        $tongsl = 0;
-        foreach ($_SESSION['mycart'] as $cart) {
-          $thanhtien = $cart[2] * $cart[4];
-          $tong = $tong + $thanhtien;
-          $tongthanhtoan = $ship + $tong;
-          $tongsl += $cart[4];
-          $i += 1;
-          echo '
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2 >THANH TOÁN</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 order-md-1 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Giỏ hàng của bạn</span>
+            
+          </h4>
+          <?
+            $tong=0;
+            $i=0;
+            $ship =30000;
+            $tongthanhtoan=0;
+            $tongsl=0;
+            foreach($_SESSION['mycart'] as $cart){
+              $thanhtien= $cart[2] * $cart[4];
+              $tong= $tong + $thanhtien;
+              $tongthanhtoan = $ship + $tong;
+              $tongsl+=$cart[4];
+              $i+=1;
+              echo'
               <ul class="list-group mb-3">
               <li class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
-                  <h6 class="my-0">Sản Phẩm ' . $i . ': ' . $cart[1] . '</h6>
-                  <small class="text-muted">Số lượng:' . $cart[4] . '</small>
+                  <h6 class="my-0">Sản Phẩm '.$i.': '.$cart[1].'</h6>
+                  <small class="text-muted">Số lượng:'.$cart[4].'</small>
                 </div>
-                <span class="text-muted">' . number_format($cart[2], ) . ' VNĐ</span>
+                <span class="text-muted">'.number_format($cart[2],).' VNĐ</span>
               </li>
               ';
         }
@@ -92,13 +94,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
           </div>
           <span class="text-success">
-            <?= number_format($ship, ) ?> VNĐ
+            <?= $castShip; ?> VNĐ
           </span>
         </li>
         <li class="list-group-item d-flex justify-content-between">
           <span>Tổng tiền</span>
           <strong>
-            <?= number_format($tongthanhtoan, ) ?> VNĐ
+            <?= number_format($tongthanhtoan, 3) ?> VNĐ
           </strong>
         </li>
         </ul>
@@ -162,68 +164,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
           </div>
 
-          <div class="mb-3">
-            <label for="address">Địa chỉ</label>
-            <input type="text" name="dc" class="form-control" id="address" placeholder="Nhập vào địa chỉ">
-            <?
-            if (!empty($errdc)) {
-              echo '<p style="color:red;">' . $errdc . '</p>';
-            }
-            ?>
-          </div>
+            <div class="mb-3">
+              <label for="address">Địa chỉ</label>
+              <input type="text" class="form-control" id="address" placeholder="Nhập vào địa chỉ" required>
+              <div class="invalid-feedback">
+                Vui lòng nhập vào địa chỉ
+              </div>
+            </div>
 
+       
 
-
-          <!-- <hr class="mb-4"> -->
-          <!-- <div class="custom-control custom-checkbox">
+            <!-- <hr class="mb-4"> -->
+            <!-- <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="same-address">
               <label class="custom-control-label" for="same-address">Tôi cam kết thông tin trên là đúng</label>
             </div> -->
+          
+     
 
-
-
-
-
-
-          <hr class="mb-4">
-          <button type="submit" class="btn btn-primary btn-lg btn-block"
-            style="background-color: #FBEE2C; color: #132A1E;">Thanh Toán
-</button>
-
-        </form>
+          
+         
+          
+            <hr class="mb-4">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: #FBEE2C; color: #132A1E;" ><a class="payCheck" href="index.php?page=orderComplete">THANH TOÁN</a></button>
+            
+          </form>
+        </div>
       </div>
+
+    
     </div>
+    <style>
+      .payCheck{
+        text-decoration: none !important;
+        color: black ;
+      }
 
-
-  </div>
-  <style>
-    .payCheck {
-      text-decoration: none !important;
-      color: black;
-    }
-  </style>
-  <!-- Bootstrap core JavaScript
+    </style>
+    <!-- Bootstrap core JavaScript
     ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-  <script src="../../assets/js/vendor/popper.min.js"></script>
-  <script src="../../dist/js/bootstrap.min.js"></script>
-  <script src="../../assets/js/vendor/holder.min.js"></script>
-  <script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function () {
+      (function() {
         'use strict';
 
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
           // Fetch all the forms we want to apply custom Bootstrap validation styles to
           var forms = document.getElementsByClassName('needs-validation');
 
           // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function (form) {
-            form.addEventListener('submit', function (event) {
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
               if (form.checkValidity() === false) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -233,7 +230,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           });
         }, false);
       })();
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
