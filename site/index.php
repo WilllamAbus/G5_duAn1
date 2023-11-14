@@ -16,13 +16,27 @@ include_once '../dao/phan-hoi-binh-luan.php';
 // include 'slider.php'; 
 // include 'support.php'; 
 // include 'category.php'; 
+$hh=loadall_sanpham("",0);
 if (isset($_GET["page"])) {
     switch ($_GET["page"]) {
         case 'trangchu':
             include 'user/view/home.php';
             break;
         case 'sanpham':
-            $product = san_pham_select_trend();
+            if (isset($_POST['inputProduct']) && ($_POST['inputProduct'])) {
+                $inputProduct = $_POST['inputProduct'];
+            } else {
+                $inputProduct = " ";
+            }
+            if (isset($_GET['maloai']) && ($_GET['maloai'] > 0)) {
+                $ma_loai = $_GET['maloai'];
+            } else {
+                $ma_loai = 0;
+
+            }
+            $hh=loadall_sanpham($inputProduct,$ma_loai);
+           
+           // $product = san_pham_select_trend();
             include 'user/product/product.php';
             break;
 
